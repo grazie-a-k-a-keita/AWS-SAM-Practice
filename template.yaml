@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Hands-on for Beginners - Serverless
+
+Resources:
+  # Lambda
+  TranslateLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: translate-function
+      CodeUri: ./translate-function
+      Handler: index.handler
+      Runtime: nodejs18.x
+      Timeout: 5
+      MemorySize: 256
+      Policies:
+        - TranslateFullAccess
+        - AmazonDynamoDBFullAccess
+      Events:
+        GetApi:
+          Type: Api
+          Properties:
+            Path: /translate
+            Method: get
+            RestApiId: !Ref TranslateAPI
+
+  # APIGateway
+  TranslateAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: translate-api
+      StageName: dev
+
+  # DynamoDB
+  TranslateDynamoDbTbl:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: TranslateHistoryTbl
+      PrimaryKey:
+        Name: TimeStamp
+        Type: String
