@@ -10,7 +10,7 @@ $ aws sso login --profile xxx
 $ aws s3api create-bucket --bucket xxx --create-bucket-configuration LocationConstraint=ap-northeast-1
 
 {
-    "Location": "http://ohno-keita-test-20240127.s3.amazonaws.com/"
+    "Location": "http://xxx.s3.amazonaws.com/"
 }
 ```
 
