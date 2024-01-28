@@ -21,6 +21,7 @@ $ aws s3api create-bucket `
 
 ```shell:powershell
 $ aws cloudformation package `
+    --profile xxx `
     --template-file template.yaml `
     --s3-bucket xxx `
     --output-template-file packaged-template.yaml
@@ -44,6 +45,7 @@ aws cloudformation deploy --template-file xxx --stack-name <YOUR STACK NAME>
 
 ```shell:powershell
 $ aws cloudformation deploy `
+    --profile xxx `
     --region ap-northeast-1 `
     --template-file ./packaged-template.yaml `
     --stack-name xxx `
