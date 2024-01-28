@@ -7,7 +7,10 @@ $ aws sso login --profile xxx
 ## Create a bucket in S3
 
 ```shell:powershell
-$ aws s3api create-bucket --bucket xxx --create-bucket-configuration LocationConstraint=ap-northeast-1
+$ aws s3api create-bucket `
+    --profile xxx `
+    --bucket xxx `
+    --create-bucket-configuration LocationConstraint=ap-northeast-1
 
 {
     "Location": "http://xxx.s3.amazonaws.com/"
