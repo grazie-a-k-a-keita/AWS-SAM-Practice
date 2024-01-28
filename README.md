@@ -1,9 +1,3 @@
-## Log in and use AWS CLI with SSO
-
-```shell
-$ aws sso login --profile xxx
-```
-
 ## Create a bucket in S3
 
 ```shell:powershell
